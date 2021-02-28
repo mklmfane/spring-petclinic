@@ -5,10 +5,9 @@ pipeline {
       stages {
           stage('Checkout') {
                steps {
-                    sh '''  
                        git 'https://github.com/mklmfane/spring-petclinic.git'
-                       pwd
-                       '''
+                       sh 'pwd'
+                       
                      }
           }
         
