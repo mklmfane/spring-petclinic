@@ -5,16 +5,16 @@ pipeline {
       stages {
           stage('Checkout') {
                steps {
-                    git 'https://github.com/mklmfane/spring-petclinic.git'
+                    sh '''  
+                       git 'https://github.com/mklmfane/spring-petclinic.git'
+                       pwd
+                       '''
                      }
           }
         
           stage('Build') {
               steps {
-                    sh '''
-                       pwd
-                       mvn clean package
-                    '''
+                    sh 'mvn clean package'
                     junit '**/target/surefire-reports/TEST-*.xml'
                     }
           }
