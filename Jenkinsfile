@@ -22,7 +22,7 @@ pipeline {
         stage('Deploy') {
           steps {
             sh '''
-               sudo mkdir -p /opt/pet
+               mkdir -p /opt/pet
                scp target/*.jar jenkins@10.0.0.10:/opt/pet/
                '''
             sh "ssh jenkins@10.0.0.10 'nohup java -jar /opt/pet/spring-petclinic-1.5.1.jar &'"
